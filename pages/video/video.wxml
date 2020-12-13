@@ -1,0 +1,54 @@
+<!--pages/video/video.wxml-->
+<view class="videoContainer">
+  <view class="header">
+    <image src="/static/images/video/video.jpg"></image>
+    <view bindtap="onSearchTap" class="search">
+      搜索
+    </view>
+    <image src="/static/images/logo.png"></image>
+  </view>
+  <!-- 导航区域 -->
+  <scroll-view class="navScroll" scroll-with-animation scroll-into-view="{{'into-'+navID}}" scroll-x enable-flex>
+    <view id="{{'into-'+videoGroupItem.id}}" class="navItem" wx:for="{{videoGroupList}}" wx:key='id'
+      wx:for-item="videoGroupItem">
+      <view class="navContent {{videoGroupItem.id===navID?'active':''}}" bindtap="changeIndex"
+        id="{{videoGroupItem.id}}">
+        {{videoGroupItem.name}}
+      </view>
+    </view>
+  </scroll-view>
+  <!-- 视频列表区域 -->
+  <scroll-view scroll-y class='videoScrollView' refresher-enabled bindrefresherrefresh="onRedresherRefresh" refresher-triggered="{{isTriggered}}" bindscrolltolower="onScrollToLower">
+    <view class="videoItem" wx:for="{{videoList}}" wx:key='id'>
+      <!-- 视频组件 -->
+      <video bindended="onEnded" bindtimeupdate="onTimeUpdate" object-fit="contain" wx:if="{{item.data.vid===videoID}}"
+        class="video-image" id="{{item.data.vid}}" src="{{item.data.urlInfo.url}}" bindplay="onBindPlay"
+        poster="{{item.data.coverUrl}}"></video>
+      <!-- 图片组件：用于替换视频组件，点击时候切换到视频组件（微信小程序的bug） -->
+      <image wx:else class="video-image" id="{{item.data.vid}}" bindtap="onBindPlay" src="{{item.data.coverUrl}}">
+      </image>
+      <!--  -->
+      <view class="content">{{item.data.title}}</view>
+      <view class="footer">
+        <image class="avatar" src="{{item.data.creator.avatarUrl}}"></image>
+        <text class="nickName">{{item.data.creator.nickname}}</text>
+        <view class="comments_praised">
+          <text class="item">
+            <text class="iconfont iconiconfontzhizuobiaozhun44"></text>
+            <text class="count">{{item.data.praisedCount}}</text>
+          </text>
+          <text class="item">
+            <text class="iconfont iconpinglun"></text>
+            <text class="count">{{item.data.commentCount}}</text>
+          </text>
+          <button open-type="share" class="item btn">
+            <text class="iconfont icongengduo"></text>
+          </button>
+        </view>
+      </view>
+    </view>
+
+
+
+  </scroll-view>
+</view>

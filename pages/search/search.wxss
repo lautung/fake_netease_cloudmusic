@@ -1,0 +1,171 @@
+/* pages/search/search.wxss */
+.searchContainer {
+  width: 100%;
+  height: 100%;
+}
+
+.searchHeader {
+  display: flex;
+  height: 80rpx;
+  line-height: 80rpx;
+  padding: 10rpx 0;
+}
+
+.searchHeader .searchInput {
+  position: relative;
+  flex: 1;
+  height: 100%;
+  line-height: 80rpx;
+}
+
+.searchHeader .searchInput .iconfont {
+  width: 50rpx;
+  position: absolute;
+  left: 15rpx;
+  line-height: 80rpx;
+}
+
+
+
+.searchHeader .searchInput input {
+  margin-left: 50rpx;
+  height: 100%;
+  background: #eee;
+  text-overflow: ellipsis;
+  border-radius: 40rpx;
+  padding: 0 10rpx;
+}
+
+.searchHeader .searchInput .clearScearchContent {
+  position: absolute;
+  right: 10rpx;
+  height: 80rpx;
+  font-size: 50rpx;
+  line-height: 80rpx;
+  top: -5rpx;
+  z-index: 100;
+  width: 80rpx;
+  text-align: center;
+}
+
+.searchHeader .cancel {
+  width: 100rpx;
+  text-align: center;
+}
+
+/* 热搜 */
+.hotContainer {}
+
+.hotContainer .title {
+  font-size: 30rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-bottom: 1rpx solid #eee;
+
+}
+
+.hotContainer .hotList {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.hotContainer .hotList .hotItem {
+  width: 50%;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 26rpx;
+  /* 单行 */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: flex;
+}
+
+.hotContainer .hotList .hotItem .musicName {
+  margin: 0 10rpx;
+  max-width: 250rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+
+.hotContainer .hotList .hotItem>image {
+  width: 30rpx;
+  height: 28rpx;
+  margin: 10rpx;
+}
+
+/*  <!-- 搜索内容区域 -->  */
+
+.showSearchContainer {
+  width: 100%;
+  height: 0;
+  position: absolute;
+  left: 0;
+  top: 90rpx;
+  z-index: 100;
+  background: white;
+  overflow: hidden;
+  transition: height 100ms;
+}
+
+.showSearchContainer.active {
+  height: 100%;
+}
+
+.showSearchContainer .searchContent {
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 24rpx;
+  border-bottom: 1rpx solid #eee;
+}
+
+.showSearchContainer .searchList .searchListItem {
+  height: 80rpx;
+  line-height: 80rpx;
+  display: flex;
+}
+
+.showSearchContainer .searchList .searchListItem .iconfont {
+  width: 80rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 40rpx;
+  text-align: center;
+}
+
+
+
+.showSearchContainer .searchList .searchListItem .content {
+  flex: 1;
+  margin-left: 20rpx;
+  border-bottom: 1rpx solid #eff;
+  font-size: 26rpx;
+}
+
+/* 搜索记录 */
+.historyContainer .history {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.historyContainer .title {
+  font-size: 28rpx;
+  padding: 20rpx;
+  border-bottom: 1rpx solid #eee;
+}
+
+.historyContainer .history .historyItem {
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 26rpx;
+  background: #eee;
+  margin: 5rpx 10rpx;
+  padding: 0 20rpx;
+  border-radius: 40rpx;
+}
+
+.historyContainer .history .historyItem:last-child {
+  background: #fff;
+}

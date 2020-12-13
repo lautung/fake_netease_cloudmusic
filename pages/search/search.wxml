@@ -1,0 +1,55 @@
+<!--pages/search/search.wxml-->
+<view class="searchContainer">
+  <view class="searchHeader">
+    <view class="searchInput">
+      <text class="iconfont iconsousuo"></text>
+      <input bindinput="onInput" placeholder="{{placeholderContent}}" type="text"></input>
+      <text hidden="{{!searchContent}}" class="clearScearchContent iconshanchu1"></text>
+    </view>
+    <view class="cancel">取消</view>
+  </view>
+  <!-- 搜索历史记录 -->
+  <view wx:if="{{searchHistoryList.length}}" class="historyContainer">
+    <view class="title">搜索历史</view>
+    <view class="history">
+      <view class="historyItem" wx:for="{{searchHistoryList}}" wx:key="id">
+        {{item.content}}
+      </view>
+      <view bindtap="onClearTap" class="historyItem">
+        <text class="iconfont iconshanchu"></text>
+      </view>
+    </view>
+
+  </view>
+
+  <!-- 搜索内容区域 -->
+  <view class="showSearchContainer {{searchList.length?'active':''}}">
+    <view class="searchContent">搜索内容：{{searchContent}}</view>
+    <view class="searchList">
+      <view class="searchListItem" wx:for="searchList" wx:key="id">
+        <text class="iconfont iconsousuo"></text>
+        <text class="content">ahahhaa{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 热搜榜 -->
+  <view class="hotContainer">
+    <view class="title">热搜榜</view>
+    <!-- 列表 -->
+    <view class="hotList">
+      <view class="hotItem" wx:for="{{hotList}}" wx:key="searchWord">
+        <text class="order">{{index+1}}</text>
+        <view class="musicName">
+          {{item.searchWord}}
+        </view>
+        <image wx:if="{{item.iconUrl}}" src="{{item.iconUrl}}"></image>
+      </view>
+
+
+
+
+    </view>
+  </view>
+
+</view>
